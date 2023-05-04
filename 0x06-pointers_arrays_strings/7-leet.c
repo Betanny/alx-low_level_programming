@@ -1,19 +1,23 @@
 #include "main.h"
-#include <stdio.h>
 /**
- * main - check the code for
- *
- * Return: 0 always
- */
-int main(void)
+* leet - function that encode a string
+*@str:string that will be encoded
+*Return:returns encoded string
+*/
+
+char *leet(char *str)
 {
-	char s[] = "Expect the best. Prepare for the worst. Capitalize on what comes.\n";
-	char *p;
+	int index1 = 0, index2;
+	char leet[8] = {'O', 'L', '?', 'E', 'A', '?', '?', 'T'};
 
-	p = leet(s);
-
-	printf("%s", p);
-	printf("%s", s);
-
-	return (0);
+	while (str[++index1])
+	{
+		for (index2 = 0; index2 <= 7; index2++)
+		{
+			if (str[index1] == leet[index2] ||
+			 str[index1] - 32 == leet[index2])
+				str[index1] = index2 + '0';
+		}
+	}
+	return (str);
 }
